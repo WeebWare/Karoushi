@@ -1,0 +1,17 @@
+{
+  "compilerOptions": {
+    "module": "commonjs",
+    "target": "es2017",
+    "lib": [
+        "es7"
+    ],
+    "noImplicitAny": false,
+    "removeComments": true,
+    "sourceMap": true,
+    "allowJs": true,
+    "exclude": [
+        "node_modules"
+    ],
+    "experimentalDecorators": true,
+  }
+}
