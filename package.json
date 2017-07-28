@@ -1,0 +1,21 @@
+{
+  "name": "karoushi",
+  "version": "0.1.0",
+  "description": "Command framework for discord.js",
+  "main": "index.js",
+  "scripts": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/WeebWare/Karoushi.git"
+  },
+  "author": "WeebWare Developers",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/WeebWare/Karoushi/issues"
+  },
+  "homepage": "https://github.com/WeebWare/Karoushi#readme",
+  "dependencies": {
+    "@types/node": "^8.0.17",
+    "discord.js": "^11.1.0"
+  }
+}
