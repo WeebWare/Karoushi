@@ -1,35 +1,29 @@
 import { Client, ClientOptions } from "discord.js";
-import { KaroushiClientOptions } from "./interfaces";
 import Command from "./command";
+import { IKaroushiClientOptions } from "./interfaces";
 import Plugin from "./plugin";
 
 export default class KaroushiClient extends Client {
 
   protected commandPrefixes: string[];
 
-  private _ownerId: string;
+  private readonly ownerId: string;
   private registeredPlugins: Plugin[];
 
   /**
    * @param {KaroushiClientOptions} [config] - Configuration for the framework
    */
-  public constructor(options: ClientOptions, config: KaroushiClientOptions) {
+  public constructor (options: ClientOptions, config: IKaroushiClientOptions) {
     super(options);
-    this._ownerId = config.ownerId;
+    this.ownerId = config.ownerId;
     this.commandPrefixes = config.commandPrefixes;
   }
 
   /**
-   * @return {string}
+   * Registers multiple plugins (abstraction over registerPlugin)
+   * @param {Plugin[]} [plugins] - The plugins that we're going to register
    */
-  get ownerId(): string {
-    return this._ownerId;
-  }
-
-  /**
-   * Registers multiple plugins
-   */
-  registerPlugins(plugins: Plugin[]) {
+  public registerPlugins (plugins: Plugin[]): void {
     for (const plugin of plugins) {
       this.registerPlugin(plugin);
     }
@@ -37,8 +31,9 @@ export default class KaroushiClient extends Client {
 
   /**
    * Registers a single plugin
+   * @param {Plugin} [plugin] - An instance of plugin to register
    */
-  registerPlugin(plugin: Plugin) {
+  private registerPlugin (plugin: Plugin): void {
     this.registeredPlugins[plugin.name] = plugin;
   }
 
